@@ -20,10 +20,6 @@ class Song
     @artist_name = artist
   end
 
-  def self.all
-    @@all
-  end
-
   def save
     self.class.all << self
   end
