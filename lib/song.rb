@@ -5,6 +5,15 @@ class Song
 
   @@all = []
 
+
+  def self.all
+    @@all
+  end
+
+  def self.all=(new_all)
+    @@all = new_all
+  end
+
   def initialize(title = nil, artist = nil)
     self.save
     @name = title
@@ -18,10 +27,13 @@ class Song
   def save
     self.class.all << self
   end
+
   # Song Class Methods .create instantiates and saves the song, and it returns the new song that was created
+
   def self.create
     self.new
   end 
+
   # Song Class Methods .new_by_name instantiates a song with a name property
 
   def self.new_by_name(song_title)
@@ -61,6 +73,6 @@ class Song
   end
 
   def self.destroy_all
-    @@all = []
+    self.all = []
   end
 end
